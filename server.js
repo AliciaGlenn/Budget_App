@@ -3,6 +3,14 @@ const budgets = require("./models/budget.js");
 
 app = express();
 
+//middleware
+app.use((req, res, next) => {
+  console.log("I run for all routes");
+  next();
+});
+
+app.use(express.urlencoded({ extended: false }));
+
 app.get("/", (req, res) => {
   res.render("index.ejs", {
     allBudgets: budgets,
@@ -14,7 +22,9 @@ app.get("/new", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  res.send("hi");
+  budgets.push(req.body);
+  console.log(budgets);
+  res.redirect("/");
 });
 
 app.get("/:id", (req, res) => {
