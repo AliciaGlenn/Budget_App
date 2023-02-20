@@ -1,10 +1,19 @@
 const express = require("express");
-const budgets = require("./models/budgets.js");
+const budgets = require("./models/budget.js");
 
 app = express();
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.render("index.ejs", {
+    allBudgets: budgets,
+  });
+});
+
+app.get("/:id", (req, res) => {
+  res.render("show.ejs", {
+    //second param must be an object
+    budget: budgets[req.params.id], //there will be a variable available inside the ejs file called budget, its value is budget[req.params.id]
+  });
 });
 
 app.listen(3000, () => {

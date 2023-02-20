@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Budget App</title>
+  </head>
+  <body>
+    <h1>Your Budgets</h1>
+    <ul>
+      <% for(let i = 0; i < allBudgets.length; i++) { %>
+      <li>
+        <a href="/<%=i%>"><%=allBudgets[i].name %></a>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>
