@@ -9,6 +9,10 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/new", (req, res) => {
+  res.render("new.ejs");
+});
+
 app.get("/:id", (req, res) => {
   res.render("show.ejs", {
     //second param must be an object
