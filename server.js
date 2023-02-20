@@ -13,6 +13,10 @@ app.get("/new", (req, res) => {
   res.render("new.ejs");
 });
 
+app.post("/", (req, res) => {
+  res.send("hi");
+});
+
 app.get("/:id", (req, res) => {
   res.render("show.ejs", {
     //second param must be an object
